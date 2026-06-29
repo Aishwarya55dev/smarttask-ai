@@ -1,6 +1,7 @@
 import axios from "axios";
+import API_BASE from "../config";
 
-const API = "http://localhost:5000/api/goals";
+const API = `${API_BASE}/api/goals`;
 
 export const getGoals = async () => {
   const response = await axios.get(API);
@@ -16,7 +17,6 @@ export const updateProgress = async (id, progress) => {
   const response = await axios.patch(`${API}/${id}`, {
     progress,
   });
-
   return response.data;
 };
 
